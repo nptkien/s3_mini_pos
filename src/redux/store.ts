@@ -1,6 +1,6 @@
-import { Action, ThunkDispatch, configureStore, combineReducers } from '@reduxjs/toolkit'
+import { Action, ThunkDispatch, configureStore, combineReducers } from '@reduxjs/toolkit';
 import authReducer from './slices/auth';
-import counterReducer from './slices/counterSlice'
+import counterReducer from './slices/counterSlice';
 export const store = configureStore({
     reducer: combineReducers({
         authState: authReducer,

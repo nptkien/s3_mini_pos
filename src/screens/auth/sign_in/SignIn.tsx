@@ -51,13 +51,7 @@ export const SignInScreen = () => {
                 />
                 <Text style={style.text_language}>
                     EN
-                    {/* {currentLanguage?.code == 'en' ? 'EN' : 'VI'} */}
                 </Text>
-                {/* <FontAwesome5
-                        name="angle-down"
-                        color={colors.secondary}
-                        size={14}
-                    /> */}
             </TouchableOpacity>
             <View style={{ height: 200 }}></View>
             <AuthInput type='account' ref={accountInputRef}
@@ -100,21 +94,9 @@ export const SignInScreen = () => {
                                 }}
                             />
                         </TouchableOpacity>
-                        {/* {showFingerLogin && (
-                                <TouchableOpacity
-                                    style={style.btn_finger}
-                                    onPress={openAuthenticationTouch}>
-                                    <FontAwesome5
-                                        name="fingerprint"
-                                        size={20}
-                                        color={colors.secondary}
-                                    />
-                                </TouchableOpacity>
-                            )} */}
                     </View>
                     <TouchableOpacity
                         onPress={() => {
-                            // refLocal.current.open();
                         }}
                         style={{
                             backgroundColor: colors.solid.primary,
@@ -177,7 +159,7 @@ const AuthInput = forwardRef<AuthInputRef, PropsWithoutRef<PropsAuthInput>>((pro
 
 
 const TranslateText = (props: { i18nKey: any, style: any }) => {
-    return <Text>{props.i18nKey}</Text>
+    return <Text style={style}>{props.i18nKey}</Text>;
 }
 const style = StyleSheet.create({
     centeredView: {

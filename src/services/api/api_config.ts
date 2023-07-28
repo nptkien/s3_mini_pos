@@ -10,11 +10,11 @@ axiosInstance.defaults.timeout = 20000;
 axiosInstance.defaults.headers.common = { "Content-Type": "application/json" };
 // Set the AUTH token for any request
 axiosInstance.interceptors.request.use(function (config) {
-    // const token = localStorage.getItem('token');
     const token = "token";
     config.headers.Authorization = token ? `Bearer ${token}` : '';
     return config;
 });
+
 export const ApiConfig = async (url: string, payload?: any, _method = "POST", apiPrefix = PREFIX_API, responseType?: ResponseType) => {
     const method = _method.toLowerCase() as AxiosRequestConfig["method"];
     const config: AxiosRequestConfig = {
@@ -24,13 +24,6 @@ export const ApiConfig = async (url: string, payload?: any, _method = "POST", ap
     };
     if (responseType) config.responseType = responseType;
     if (apiPrefix !== PREFIX_API) config.baseURL = `${ENDPOINT_LOCAL}/${apiPrefix}`;
-    //  if (method === 'post') {
-    //     return axiosInstance.post(`${url}`, payload, config)
-    //         .then(response => {
-    //             return response
-    //         })
-    //         .catch(error => error);
-    // }
     return axiosInstance.request(config);
 }
 
