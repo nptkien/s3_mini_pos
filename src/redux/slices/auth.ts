@@ -20,7 +20,7 @@ function timeout(delay: number) {
 export const requestLogin = createAsyncThunk('auth/login', async (props: { account: string, password: string }) => {
     const { account, password } = props;
     await timeout(2000);
-    // const res = await apiLogin(props);
+    const res = await apiLogin(props);
     // return res.data
     return new User({ account, password })
 })
