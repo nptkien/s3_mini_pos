@@ -5,8 +5,13 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.semi_pos.MyPrinter;
+
+import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
+
+import android.content.Context;
 import android.util.Log;
 import androidx.appcompat.app.AlertDialog;
 import android.os.Message;
@@ -36,12 +41,12 @@ public class SmartPrinter extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void demoHandlePrintEvent(String deviceName) {
+    public void demoHandlePrintEvent() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getCurrentActivity());
 
         Log.i("DeviceInfoModule", "Đã lấy chiều rộng màn hình thành công");
         command = 0;
-        new PrintThread().start();
+        new MyPrinter().startPrint(getReactApplicationContext(),List.of("abc xyz" , "This is tiếng việt" , "test tiếng việt"));
     }
 
     @ReactMethod
